@@ -128,3 +128,6 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+frontend/.gitignore
+frontend/yarn.lock
+backend/yarn.lock
