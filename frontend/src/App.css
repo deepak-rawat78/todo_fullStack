@@ -1,38 +1,105 @@
-.App {
-  text-align: center;
+.todo_item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding:15px 8px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.todo_item_mid{
+  border-bottom: 1px solid #fff1dc;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.title{
+  font-size: 22px;
+  font-weight: 700;
+  color: #2B2D30;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.todo_value {
+  display: flex;
+  flex: 1;
+  font-size: 16px;
+  color: #4E535B;
+  font-weight: 500;
+}
+
+.container {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.inner_container{
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  background-color: #fffff2;
+  padding: 0px 10px;
+  border-radius: 20px;
+  margin-top: 160px;
+}
+
+.input_container {
+  flex:1;
+  display: flex;
+  flex-direction: row;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  width: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+.todo_input {
+  display: flex;
+  flex: 1;
+  border-radius: 7px;
+  border-width: 1px;
+  margin-right: 12px;
+  font-size: 18px;
+  padding: 8px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.todo_list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.todo_input_addButton {
+  border: 1px solid #5B89E3;
+  color:#5B89E3;
+  background-color: #ffffff;
+  padding: 5px 18px;
+  border-radius: 12px;
+}
+
+.todo_item_button{
+
+}
+
+.delete_button{
+  border: 1px solid #E35B5B;
+  color:#E35B5B;
+  background-color: #ffffff;
+  padding: 5px 10px;
+  border-radius: 8px;
+}
+
+.edit_button{
+  margin-right: 8px;
+  border: 1px solid #4C8E3C;
+  color:#4C8E3C;
+  background-color: #ffffff;
+  padding: 5px 10px;
+  border-radius: 8px;
+}
+
+.header_container{
+  width: 40%;
+display: flex;
+flex-direction: column;
+align-items: center;
+position: fixed;
+background-color: #ffffff;
+height: 120px;
+  padding: 10px 10px;
+  
 }

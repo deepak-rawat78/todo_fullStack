@@ -1,6 +1,6 @@
 import "./App.css";
 import { useEffect, useState } from "react";
-import { getTodoItemsList, saveTodoItem } from "./helper";
+import { deleteTodoItem, getTodoItemsList, saveTodoItem } from "./helper";
 
 function App() {
   const [todoText, setTodoText] = useState("");
@@ -36,17 +36,66 @@ function App() {
       });
   };
 
-  const renderItem = (value) => {
-    return <li>{value}</li>;
+  const handleDelete = (id) => {
+    deleteTodoItem(id)
+      .then((res) => {
+        console.log(res);
+        getListItem();
+      })
+      .catch((error) => {
+        console.log(error, "delete error");
+      });
+  };
+
+  const renderItem = (value, index) => {
+    return (
+      <li
+        className={`todo_item ${
+          data.length - 1 !== index ? "todo_item_mid" : ""
+        }`}
+      >
+        <div className="todo_value">{value?.text}</div>
+        <div className="todo_item_button">
+          <button className="edit_button" type="button">
+            Edit
+          </button>
+          <button
+            className="delete_button"
+            type="button"
+            onClick={() => handleDelete(value._id)}
+          >
+            Delete
+          </button>
+        </div>
+      </li>
+    );
   };
 
   return (
-    <div>
-      <input type="text" value={todoText} onChange={handleChangeText} />
-      <button type="button" title="Add" onClick={addTodoItem}>
-        Add
-      </button>
-      <ul>{data.map(renderItem)}</ul>
+    <div className="container">
+      <div className="header_container">
+        <p className="title">Todo App</p>
+        <div className="input_container">
+          <input
+            className="todo_input"
+            type="text"
+            value={todoText}
+            onChange={handleChangeText}
+          />
+          <button
+            className="todo_input_addButton"
+            type="button"
+            title="Add"
+            onClick={addTodoItem}
+          >
+            Add
+          </button>
+        </div>
+      </div>
+
+      <div className="inner_container">
+        <ul className="todo_list">{data.map(renderItem)}</ul>
+      </div>
     </div>
   );
 }

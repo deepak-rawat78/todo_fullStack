@@ -12,3 +12,7 @@ export const getTodoItemsList = (data) => {
 export const saveTodoItem = (data) => {
   return axios.post("http://localhost:3000/addTodo", data);
 };
+
+export const deleteTodoItem = (id) => {
+  return axios.delete(`http://localhost:3000/deleteTodo/${id}`);
+};
